@@ -4,6 +4,7 @@ run     apt-get update && apt-get install -y wget freeciv-server
 run     useradd -d /freeciv freeciv
 user    freeciv
 volume ["/freeciv"]
+run	chown freeciv /freeciv
 entrypoint ["/usr/games/freeciv-server"]
 cmd ["--saves", "/freeciv", "--port", "53773", "--debug", "3", "--log", "/freeciv/fc.log" ]
 expose 53773
